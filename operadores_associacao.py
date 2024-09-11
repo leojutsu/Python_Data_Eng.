@@ -1,6 +1,7 @@
 """ O que são operadores de associação( in / not in)?
 
 São operadores utilizados para verificar se um objeto está presente em uma sequência.
+atenção: o operador de associação é case sensitive!
 """
 curso = "Curso de Python"
 
