@@ -97,3 +97,5 @@ Eu estou aprendendo Python.
     Essa mensagem tem diferentes recuos.
     '''
 print(mensagem)
+
+
