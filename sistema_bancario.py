@@ -52,7 +52,7 @@ def sacar(*, saldo, valor, extrato, limite, numero_saques, limite_saques):
 def exibir_extrato(saldo, /, *, extrato):
     print("\n##########EXTRATO###########")
     print("Não foram realizadas movimentações." if not extrato else extrato)
-    print(f"\nSaldo: R$ {saldo:.2f}")
+    print(f"\nSaldo:\t\t R$ {saldo:.2f}")
     print("##############################")
 
 def criar_usuario(usuarios):
@@ -71,11 +71,11 @@ def criar_usuario(usuarios):
 
     print("### Clinte cadastrado com sucesso! ###")
 
-def filtrar_usuario(cpf, clientes):
-    clientes_filtrados = [cliente for cliente in clientes if cliente["cpf"] == cpf]
-    return clientes_filtrados[0] if clientes_filtrados else None
+def filtrar_usuario(cpf, usuarios):
+    usuarios_filtrados = [usuario for usuario in usuarios if usuario["cpf"] == cpf]
+    return usuarios_filtrados[0] if usuarios_filtrados else None
 
-def criar_conta(agencia, numero_conta, usuario):
+def criar_conta(agencia, numero_conta, usuarios):
         cpf = input("Informe o CPF do usuário: ")
         usuario = filtrar_usuario(cpf, usuarios)
 
@@ -129,14 +129,8 @@ def main():
             )
 
         elif opcao == "e":
-            exibir_extrato(saldo, extrato=extrato)
+            exibir_extrato(saldo, extrato=extrato)                  
           
-
-        elif opcao == "nu":
-            criar_usuario(usuarios)
-        
-          
-
         elif opcao == "nu":
             criar_usuario(usuarios)
 
@@ -144,12 +138,12 @@ def main():
             numero_conta = len(contas) + 1
             conta = criar_conta(AGENCIA, numero_conta, usuarios)
 
-        if conta:
-            conta.append(conta)
+            if conta:
+                contas.append(conta)
 
         elif opcao == "lc":
-            listar_contas(conta)  
-
+            listar_contas(contas)  
+ 
 
         elif opcao == "q":
             break
